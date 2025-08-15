@@ -1,0 +1,372 @@
+FX Options Theory — The Core Building Blocks
+a) The Underlying in FX
+
+In equities: underlying = 1 stock, priced in your domestic currency.
+
+In FX: underlying = an exchange rate (Currency A / Currency B).
+
+The “base” currency is the first in the pair (e.g., EUR in EUR/USD).
+
+The “terms” currency is the second (e.g., USD in EUR/USD).
+
+Important: a call option on EUR/USD = right to buy EUR and sell USD at strike 
+𝐾
+K.
+
+The payoff is always in terms of the terms currency unless cash-settled otherwise.
+
+b) FX-Specific Option Pricing — Garman–Kohlhagen Model
+
+This extends Black-Scholes to handle two interest rates (one for each currency):
+
+𝐶
+=
+𝑆
+𝑒
+−
+𝑟
+𝑓
+𝑇
+𝑁
+(
+𝑑
+1
+)
+−
+𝐾
+𝑒
+−
+𝑟
+𝑑
+𝑇
+𝑁
+(
+𝑑
+2
+)
+C=Se
+−r
+f
+	​
+
+T
+N(d
+1
+	​
+
+)−Ke
+−r
+d
+	​
+
+T
+N(d
+2
+	​
+
+)
+𝑃
+=
+𝐾
+𝑒
+−
+𝑟
+𝑑
+𝑇
+𝑁
+(
+−
+𝑑
+2
+)
+−
+𝑆
+𝑒
+−
+𝑟
+𝑓
+𝑇
+𝑁
+(
+−
+𝑑
+1
+)
+P=Ke
+−r
+d
+	​
+
+T
+N(−d
+2
+	​
+
+)−Se
+−r
+f
+	​
+
+T
+N(−d
+1
+	​
+
+)
+
+where:
+
+𝑆
+S = current spot exchange rate (terms per base)
+
+𝑟
+𝑑
+r
+d
+	​
+
+ = domestic risk-free rate (terms currency)
+
+𝑟
+𝑓
+r
+f
+	​
+
+ = foreign risk-free rate (base currency)
+
+𝑇
+T = time to expiry
+
+𝜎
+σ = implied volatility
+
+𝑁
+(
+⋅
+)
+N(⋅) = standard normal CDF
+
+Differences from equity BS:
+
+You discount both legs using respective rates.
+
+Forwards are not “spot × e^{rT}” but “spot × e^{(r_d - r_f)T}”.
+
+Forward rate from Interest Rate Parity:
+
+𝐹
+=
+𝑆
+𝑒
+(
+𝑟
+𝑑
+−
+𝑟
+𝑓
+)
+𝑇
+F=Se
+(r
+d
+	​
+
+−r
+f
+	​
+
+)T
+
+This is the strike that makes a forward contract zero-value.
+
+c) The Greeks in FX Options
+
+FX traders think of two sets of risks:
+
+Spot risks (delta, gamma, vega, theta)
+
+Carry/IR risks (rho for each currency)
+
+Delta: change in option value for 1-unit change in spot. In FX, there’s:
+
+Spot delta: sensitivity in base currency terms.
+
+Premium-included delta: accounts for premium in the delta notional.
+
+Gamma: change in delta per 1-unit change in spot. Big near expiry and ATM.
+
+Vega: change in value per 1% change in vol.
+
+Theta: time decay; note FX theta accrues over weekends and holidays differently.
+
+Rho_domestic: sensitivity to domestic (terms) interest rates.
+
+Rho_foreign: sensitivity to foreign (base) interest rates.
+
+d) The Volatility Surface
+
+Two key dimensions:
+
+Term structure (expiry vs vol)
+
+Smile/Skew (delta vs vol)
+
+Smile quoting conventions in FX:
+
+ATM vol: typically “delta-neutral” ATM (often 50-delta strike).
+
+Risk Reversal (RR): 
+𝜎
+25
+call
+−
+𝜎
+25
+put
+σ
+25call
+	​
+
+−σ
+25put
+	​
+
+
+Positive RR: calls pricier → market leans bullish on base currency.
+
+Negative RR: puts pricier → bearish on base currency.
+
+Butterfly (BF): 
+𝜎
+25
+call
++
+𝜎
+25
+put
+2
+−
+𝜎
+ATM
+2
+σ
+25call
+	​
+
++σ
+25put
+	​
+
+	​
+
+−σ
+ATM
+	​
+
+
+Measures curvature of smile.
+
+Why skew exists in FX:
+
+Persistent hedging flows (exporters/importers)
+
+Crash risk asymmetry (e.g., CNH devaluation risk)
+
+CB intervention bias (e.g., USD/JPY downside skew = JPY call demand)
+
+e) Implied vs Realized Vol
+
+Implied vol: embedded in option price from the market — forward-looking.
+
+Realized vol: actual movement in spot — backward-looking.
+
+In FX, desks constantly monitor IV vs RV spread to decide whether to buy/sell vol.
+
+f) FX Options Settlement & Conventions
+
+Settlement date often T+2 from trade date.
+
+Expiry “cut” time matters:
+
+NY cut (10am NY time)
+
+Tokyo cut (3pm Tokyo)
+
+London cut
+
+Premium paid upfront in the terms currency.
+
+2️⃣ Products an FX Options Desk Trades
+
+Here’s where you need to sound fluent in both vanilla and exotics:
+
+Vanilla Options
+
+Calls/Puts: Basic directional bets, priced via Garman–Kohlhagen.
+
+Straddles/Strangles: Vol bets — long = buy both legs, short = sell both legs.
+
+Risk Reversals: Long call / short put (same delta) → expresses skew + direction.
+
+Seagulls: Risk reversal plus short extra OTM option to fund it.
+
+Exotic Options
+
+Banks make a lot of P&L in structured payoffs beyond vanillas:
+
+Barrier Options
+
+Knock-In / Knock-Out: Activate or cancel if spot hits barrier.
+
+E.g., USD/JPY 150 KO call: worthless if USD/JPY touches 150.
+
+Touch / No-Touch: Pays if barrier is touched (or not).
+
+Why barriers matter: Hedging is non-linear, can cause big spot moves near barriers (gamma hedging flows).
+
+Digitals (Binary options)
+
+Pays fixed amount if spot is above/below strike at expiry.
+
+Used for event-risk bets (ECB, BoJ).
+
+Basket / Cross Options
+
+Options on cross rates (e.g., EUR/JPY) or baskets (weighted average of pairs).
+
+Cliquet / Forward-Starting
+
+Vol accrues over multiple periods; often used in structured notes.
+
+Structured Products with FX Options Inside
+
+Target Redemption Forwards (TRFs): Deliver enhanced forward rate until a target P&L is hit.
+
+Dual Currency Deposits (DCDs): Deposit earning high interest if spot stays in range; otherwise delivered in alternate currency.
+
+Accumulator/Decumulator: Buy/sell a set amount of currency periodically at favorable rates — until knockout.
+
+3️⃣ How Desks Make Money (and Manage Risk)
+
+Market making: Quoting bid/offer in vanillas/exotics to clients.
+
+Position-taking: Taking vol or skew views.
+
+Hedging: Managing Greeks dynamically, especially delta/gamma.
+
+Arbitrage: Spot/forward arbitrage, vol-arb across tenors, skew-arb across pairs.
+
+4️⃣ What They Might Ask You (and How to Answer)
+
+Q: “What happens to a EUR/USD call’s value if U.S. rates rise?”
+A: Higher U.S. rates (domestic rate) reduce the forward, hurting EUR calls (base currency call).
+
+Q: “Why might USD/JPY skew be persistently negative?”
+A: Because Japanese corporates hedge exports (long USD) by buying JPY calls (USD puts), creating demand for downside USD/JPY protection.
+
+Q: “How do you hedge a long USD/JPY call position?”
+A: Delta-hedge via selling USD/JPY spot or forward, adjusting hedge as spot moves (gamma hedging).
+
+Q: “Why is the Garman–Kohlhagen model necessary in FX?”
+A: FX options have two interest rates; you need to discount each currency leg separately — standard BS only has one rate.
