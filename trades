@@ -65,3 +65,40 @@ OPEC+ extending production cuts or unexpected supply disruptions.
 ECB signalling earlier or faster cuts than the Fed.
 
 U.S. growth resilience versus Eurozone stagnation.
+
+
+
+1. Directional conviction & macro drivers
+
+Q: What’s your conviction on EUR/USD spot direction — is this mostly about ECB vs Fed policy, or do you see oil prices as a significant driver of EUR?
+A: The primary driver is relative policy divergence — the ECB is likely to cut faster than the Fed as Eurozone growth stays weak. Oil is a secondary factor: sustained high prices hurt the Eurozone’s trade balance, reinforcing downside pressure on EUR/USD.
+
+Q: How do you see EUR/USD reacting if oil prices fall sharply? Does that break the macro link for your trade?
+A: A sharp oil drop would remove some downside pressure on EUR, but the policy-rate differential would still bias EUR/USD lower. That’s why I see the FX leg as having multiple macro supports, not just the commodity link.
+
+2. Volatility & options structure
+
+Q: Why express the FX leg via outright short EUR/USD instead of options?
+A: If I expect a steady grind lower with no major catalysts, spot or forwards are cleaner and avoid paying premium. If we’re heading into event risk, I’d switch to long EUR puts to monetise low implied vols and add convexity.
+
+Q: EUR/USD implied vols have been low — would you consider buying gamma to capture event risk, or sell options for carry?
+A: At these low vols, buying gamma ahead of potential ECB surprises makes sense, especially if you can finance via selling upside calls where skew is still bid. Selling vol here would be unattractive — carry is limited and event risk asymmetric.
+
+Q: If you used a risk reversal (short EUR calls / long EUR puts), what strikes and tenors would align with your macro view?
+A: I’d look at a 25-delta risk reversal, 3–6 month tenor — it lines up with my view on ECB policy timing and offers positive premium from skew while keeping directional EUR downside exposure.
+
+3. Correlation & cross-asset risk
+
+Q: How correlated do you think EUR/USD and S&P 500 Energy are in stress scenarios?
+A: Historically, the correlation is low in normal markets but can spike in geopolitical shocks when both oil and USD act as risk havens. That’s why position sizing is key — I’d size so both legs can perform independently.
+
+Q: If you get an oil supply shock, do you expect EUR/USD vol to rise, and how would that impact your PnL if you’re short options?
+A: Yes, vol would likely rise as the USD rallies and EUR falls, especially via the risk premium channel. If short options, you’d take a mark-to-market hit, which is why I’d avoid shorting vol into such a regime.
+
+4. Risk management
+
+Q: What’s your stop or exit level on the EUR/USD leg if the macro story changes?
+A: If EUR/USD breaks above 1.12 with ECB still dovish, it signals my rate-differential thesis is wrong — that’s my hard stop.
+
+Q: How would you hedge the FX leg if oil prices start falling but your USD view is unchanged?
+A: I’d partially hedge with EUR/USD call spreads to protect against short-term squeezes, keeping net downside exposure in line with the original thesis.
